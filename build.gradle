@@ -21,11 +21,31 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    /**
+     * SpringBoot 버전에 따라 SpringCloud버전이 굉장히 예민한 호환성을 가지고 있다.
+     * 2.6.x, 2.7.x (Starting with 2021.0.3) = 2021.0.x
+     * ref: spring.io/projects/spring-cloud
+     * 위 URL접속 후 Boot버전 2.7.3에 따른 가장 최신의 Release Version을 찾는다.
+     */
+    // Feign
+//    set('springCloudVersion', '2021.0.4')
+    set('springCloudVersion', '2021.0.8')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // OpenFegin
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 }
 
 tasks.named('test') {
