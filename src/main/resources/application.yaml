@@ -9,8 +9,8 @@ feign:
       default:
         connectTimeout: 1000
         readTimeout: 3000
-        loggerLever: None
+        loggerLevel: None
       demo-client: # DemoFeignClient\uC5D0\uC11C \uC0AC\uC6A9\uD560 client \uC124\uC815 \uAC12
         connectTimeout: 1000
         readTimeout: 10000
-        loggerLever: HEADERS # \uC5EC\uAE30\uC11C \uC124\uC815\uD55C \uAC12\uC740 FeignCustomLogger -> Logger.Level logLevel \uBCC0\uC218\uC5D0 \uD560\uB2F9\uB428
+        loggerLevel: HEADERS # \uC5EC\uAE30\uC11C \uC124\uC815\uD55C \uAC12\uC740 FeignCustomLogger -> Logger.Level logLevel \uBCC0\uC218\uC5D0 \uD560\uB2F9\uB428
