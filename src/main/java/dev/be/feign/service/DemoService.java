@@ -31,4 +31,9 @@ public class DemoService {
         System.out.println("Header: " + response.getBody().getHeader());
         return "get";
     }
+
+    public String errorDecoder() {
+        demoFeignClient.callErrorDecoder();
+        return "error";
+    }
 }
