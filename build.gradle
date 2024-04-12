@@ -31,6 +31,8 @@ ext {
     // Feign
 //    set('springCloudVersion', '2021.0.4')
     set('springCloudVersion', '2021.0.8')
+    set('commonsLangVersion', '3.12.0')
+
 }
 
 dependencyManagement {
@@ -46,6 +48,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // OpenFegin
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    // StingUtils
+    implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
 }
 
 tasks.named('test') {
