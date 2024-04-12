@@ -5,9 +5,7 @@ import dev.be.feign.common.dto.BaseResponseInfo;
 import dev.be.feign.feign.config.DemoFeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(
         name = "demo-client", /* 해당 인터페이스를 지칭하는 유일한 PK 역할을 해주는 값 */
@@ -19,4 +17,8 @@ public interface DemoFeignClient {
     @GetMapping("/get") // @FeignClient의 url에 지정한 application.yaml파일의 prefix 주소값이 앞에 붙게됨 - http://localhost:8080/target-server/get
     ResponseEntity<BaseResponseInfo> callGet(@RequestHeader("CustomHeaderName") String customHeader,
                                              @RequestParam("name") String name, @RequestParam("age") Long age);
+
+    @PostMapping("/post")
+    ResponseEntity<BaseResponseInfo> callPost(@RequestHeader("CustomHeaderName") String customHeader,
+                                             @RequestBody BaseRequestInfo baseRequestInfo);
 }
